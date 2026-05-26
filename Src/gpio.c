@@ -6,7 +6,7 @@
 #define LED_BS0 (1U << 0) //Bit set pin 0
 #define LED_BR0 (1U << 16)//Bit reset pin 0
 
-
+#define LED_PIN (1U << 0)
 
 void led_init(void)
 {
@@ -26,4 +26,10 @@ void led_off(void)
 {
     /*Set PA5 low*/
     GPIOB->BSRR |=LED_BR0;
+}
+
+void led_toggle(void)
+{
+
+    GPIOB->ODR ^=LED_PIN;
 }
